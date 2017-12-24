@@ -122,7 +122,7 @@ int main(void)
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
-  int16_t buffer[3] = {0};
+  float buffer[3] = {0};
   int count = 0;
   char format[] = "%i,%i,%i;%d\n";
   char to_print[50];
@@ -131,21 +131,21 @@ int main(void)
   {
 	  if (count < 100) {
   		  count++;
-  		while (buf[0] == buffer[0] && buf[1] == buffer[1] && buf[2] == buffer[2]) {
+//  		while (buf[0] == buffer[0] && buf[1] == buffer[1] && buf[2] == buffer[2]) {
   			BSP_GYRO_GetXYZ(buffer);
   		}
-  		  printf("%i %i %i \n", buffer[0],buffer[1],buffer[2]);
-  		  printf("%g %g %g \n", (double)(buffer[0]/16)/1000.0, (double)(buffer[1]/16)/1000.0, (double)(buffer[2]/16)/1000.0);
-  		  sprintf(to_print, format, buffer[0], buffer[1], buffer[2], HAL_GetTick());
-  		buf[0] = buffer[0];
-  		buf[1] = buffer[1];
-  		buf[2] = buffer[2];
-  	  } else {
-  		  sprintf(to_print, "%s\n", "end\n");
-  		  count = 0;
-  	  }
+//  		  printf("%i %i %i \n", buffer[0],buffer[1],buffer[2]);
+//  		  printf("%g %g %g \n", (double)(buffer[0]/16)/1000.0, (double)(buffer[1]/16)/1000.0, (double)(buffer[2]/16)/1000.0);
+//  		  sprintf(to_print, format, buffer[0], buffer[1], buffer[2], HAL_GetTick());
+//  		buf[0] = buffer[0];
+//  		buf[1] = buffer[1];
+//  		buf[2] = buffer[2];
+//  	  } else {
+//  		  sprintf(to_print, "%s\n", "end\n");
+//  		  count = 0;
+//  	  }
 
-	  CDC_Transmit_FS(to_print, strlen(to_print));
+//	  CDC_Transmit_FS(to_print, strlen(to_print));
   /* USER CODE END WHILE */
 
   /* USER CODE BEGIN 3 */
